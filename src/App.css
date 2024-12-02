@@ -6,8 +6,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
+}
+
+body.default {
   background: linear-gradient(135deg, #96c6f0, #00f2ff);
-  color: #fff;
+  background-size: cover;
+  transition: background 0.5s ease-in-out;
 }
 
 .app {
@@ -16,22 +21,26 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
 }
 
 input {
   padding: 10px;
-  margin: 10px 0;
-  border: none;
+  margin: 25px;
+  border: double;
   border-radius: 5px;
   width: 80%;
   max-width: 300px;
 }
 
 .weather {
+  font-size: 15px;
   margin-top: 20px;
 }
 
 .error {
   color: #ff6161;
-  font-size: 0.9rem;
+  font-weight: bold;
+  font-size: 1rem;
 }

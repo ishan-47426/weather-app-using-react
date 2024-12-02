@@ -25,22 +25,27 @@ const Weather = ({city}) => {
         }
     },[city]);
 
+    const weatherIcons = {
+        clear: <WiDaySunny />,
+        clouds: <WiCloudy />,
+        rain: <WiRain />,
+        snow: <WiSnow />,
+    };
+    
     const renderIcon = (weather) => {
-        if(weather.includes("clear")) return <WiDaySunny/>;
-        if(weather.includes("cloud")) return <WiCloudy/>;
-        if(weather.includes("rain")) return <WiRain/>;
-        if(weather.includes("snow")) return <WiSnow/>;
-        return null;
-    }
+        const key = Object.keys(weatherIcons).find((key) => weather.includes(key));
+        return weatherIcons[key] || null;
+    };
+    
 
     return(
         <div className='weather'>
-            {error && <p className='error'> error</p>}
+            {error && <p className='error'> {error}</p>}
             {weatherData && (<>
-                <h2>{weatherData.name}</h2>
-                <h3>{weatherData.main.temp}°C</h3>
-                <p>{renderIcon(weatherData.weather[0].description)}</p>
-                <p>{weatherData.weather[0].description}</p>
+                <h2>Weather in {weatherData.name}</h2>
+                <h3>Temperatue : {weatherData.main.temp}°C</h3>                
+                <p>Condition : {weatherData.weather[0].description}</p>
+                <p>{renderIcon(weatherData.weather[0].description || '')}</p>
             </>
         )}
 
