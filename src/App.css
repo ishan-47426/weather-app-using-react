@@ -44,3 +44,37 @@ input {
   font-weight: bold;
   font-size: 1rem;
 }
+@keyframes movingBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+body.sunny {
+  background: url('/public/images/blue-sky.webp') no-repeat center center fixed;
+  background-size: cover;
+  animation: movingBackground 15s linear infinite;
+}
+
+body.cloudy {
+  background: url('/public/images/clouds.webp') no-repeat center center fixed;
+  background-size: cover;
+  animation: movingBackground 20s linear infinite;
+}
+
+body.rainy {
+  background: url('/public/images/rainy-sky.webp') no-repeat center center fixed;
+  background-size: cover;
+  animation: movingBackground 30s linear infinite;
+}
+
+body.snowy {
+  background: url('/public/images/snow-storm.webp') no-repeat center center fixed;
+  background-size: cover;
+  animation: movingBackground 25s linear infinite;
+}
+
+body.default {
+  background: linear-gradient(135deg, #96c6f0, #00f2ff);
+  background-size: cover;
+  transition: background 0.5s ease-in-out;
+}
